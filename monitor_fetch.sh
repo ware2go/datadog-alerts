@@ -20,5 +20,7 @@ for i in query type name message
   do export $i="$(curl -s "https://api.datadoghq.com/api/v1/monitor/$mon_id"    -H "DD-API-KEY: $DD_API_KEY"     -H "DD-APPLICATION-KEY: $DD_APPLICATION_KEY" | jq .$i)"
 done
 
+export require_full_window="$(curl -s "https://api.datadoghq.com/api/v1/monitor/$mon_id"    -H "DD-API-KEY: $DD_API_KEY"     -H "DD-APPLICATION-KEY: $DD_APPLICATION_KEY" | jq .options.require_full_window)"
+
 printf "\nexport const monitorNameREPLACE = new datadog.Monitor('monitorNameREPLACE', {"
-printf "\n  name: $name,\n  query: $query,\n  type: $type,\n  message: $message,\n});\n\n" | sed -e "s/'/\\\'/g" | sed "s/\"/'/g"
+printf "\n  name: $name,\n  query: $query,\n  type: $type,\n  message: $message,\n  requireFullWindow: $require_full_window,\n});\n\n" | sed -e "s/'/\\\'/g" | sed "s/\"/'/g"

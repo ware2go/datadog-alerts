@@ -1,0 +1,39 @@
+version: 2.1
+
+description: "Pulumi: Datadog alert creation"
+
+orbs:
+  pulumi: ware2go/pulumi@1.0.47
+
+workflows:
+  version: 2
+    jobs:
+      - pulumi/preview-stack:
+          name: dd-alerts-preview
+          context: org-global
+          stack: "ware2go/datadog-alerts"
+          filters:
+            branches:
+              only:
+                - master
+
+      - approve:
+          name: dd-alerts-approve
+          type: approval
+          requires:
+            - dd-alerts-preview
+          filters:
+            branches:
+              only:
+                - master
+
+      - pulumi/update-stack:
+          name: dd-alerts-update
+          context: org-global
+          stack: "ware2go/datadog-alerts"
+          requires:
+            - dd-alerts-approve
+          filters:
+            branches:
+              only:
+                - master
