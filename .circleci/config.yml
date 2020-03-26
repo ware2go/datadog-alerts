@@ -11,7 +11,7 @@ workflows:
     jobs:
       - pulumi/preview-stack:
           name: dd-alerts-preview
-          context: org-global
+          context: pulumi
           stack: "ware2go/datadog-alerts"
           filters:
             branches:
@@ -30,7 +30,7 @@ workflows:
 
       - pulumi/update-stack:
           name: dd-alerts-update
-          context: org-global
+          context: pulumi
           stack: "ware2go/datadog-alerts"
           requires:
             - dd-alerts-approve
