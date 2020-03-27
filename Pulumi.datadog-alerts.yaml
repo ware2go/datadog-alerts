@@ -1,0 +1,5 @@
+config:
+  datadog:apiKey:
+    secure: AAABAOs7bC6z+CxEm1KXnZuZ/HS/AXK97fkkkVCUyspiqVMCmMgMxEEvEd8HDzQzip54CIBIAjsNVovdvbL79w==
+  datadog:appKey:
+    secure: AAABAB/UUnYVFygOEMLLjZz9XvMTxwXhqLyzc1K9nHrQfiiOkT2KwuGy6vJIVNT7VxRK6KXc6ptUqD7GgtIyqPjhCYG5kt8Q
