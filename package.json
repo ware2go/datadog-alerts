@@ -1,0 +1,35 @@
+{
+  "name": "datadog-alerts",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.ts --ignore-pattern 'node_modules/**'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "prettier-eslint": "^9.0.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@pulumi/datadog": "^1.2.0",
+    "@pulumi/pulumi": "^1.0.0",
+    "eslint": "^6.8.0",
+    "lint": "^0.7.0"
+  }
+}
