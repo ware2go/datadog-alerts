@@ -43,4 +43,11 @@ export const devClusterCpuMonitor = new datadog.Monitor(`${projectEnv}NoDataMoni
   type: 'metric alert',
   query: queryFreeDiskSpace(projectEnv),
   message: messageFreeDiskSpace(`${groupNotify}`),
+  tags: [projectEnv],
+  thresholds: { critical: 10000000000, warning: 20000000000 },
+  notifyNoData: false,
+  newHostDelay: 300,
+  includeTags: true,
+  requireFullWindow: true,
+  timeoutH: 0,
 });
