@@ -90,7 +90,7 @@ export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv
 });
 
 export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`, {
-  name: '{{cluster-name.name}} Five Minute Load Average',
+  name: '{{cluster-name.name}} CpuIoWait',
   type: 'metric alert',
   query: queryCpuIoWait(projectEnv),
   message: messageCpuIoWait(`${groupNotify}`),
@@ -104,7 +104,7 @@ export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`,
 });
 
 export const devClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
-  name: '{{cluster-name.name}} Five Minute Load Average',
+  name: '{{cluster-name.name}} ExpiredPods',
   type: 'metric alert',
   query: queryExpiredPods(projectEnv),
   message: messageExpiredPods(`${groupNotify}`),
