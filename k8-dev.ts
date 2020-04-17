@@ -9,7 +9,7 @@ const groupNotify = '@devops@ware2go.co';
 
 // Monitors
 export const devClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}ClusterNoDataMonitor`, {
-  name: '{{cluster-name.name}} is missing Data',
+  name: `${projectEnv} is missing Data`,
   type: 'service check',
   query: ddqm.queryNoData(projectEnv),
   message: ddqm.messageNoData(`${groupNotify}`),
@@ -24,7 +24,7 @@ export const devClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}Cluster
 });
 
 export const devClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterClusterCpuIdle`, {
-  name: '{{cluster-name.name}} Cpu Idle',
+  name: `${projectEnv} Cpu Idle`,
   type: 'metric alert',
   query: ddqm.queryClusterCpuIdle(projectEnv),
   message: ddqm.messageClusterCpuIdle(`${groupNotify}`),
@@ -38,7 +38,7 @@ export const devClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterCluste
 });
 
 export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv}FiveMinuteLoadAverage`, {
-  name: '{{cluster-name.name}} Five Minute Load Average',
+  name: `${projectEnv} Five Minute Load Average`,
   type: 'metric alert',
   query: ddqm.queryFiveMinuteLoadAverages(projectEnv),
   message: ddqm.messageFiveMinuteLoadAverages(`${groupNotify}`),
@@ -52,7 +52,7 @@ export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv
 });
 
 export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`, {
-  name: '{{cluster-name.name}} CpuIoWait',
+  name: `${projectEnv} CpuIoWait`,
   type: 'metric alert',
   query: ddqm.queryCpuIoWait(projectEnv),
   message: ddqm.messageCpuIoWait(`${groupNotify}`),
@@ -66,7 +66,7 @@ export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`,
 });
 
 export const devClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
-  name: '{{cluster-name.name}} ExpiredPods',
+  name: `${projectEnv} ExpiredPods`,
   type: 'metric alert',
   query: ddqm.queryExpiredPods(projectEnv),
   message: ddqm.messageExpiredPods(`${groupNotify}`),
