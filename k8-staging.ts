@@ -56,7 +56,7 @@ export const stagingClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWa
   query: ddqm.queryCpuIoWait(projectEnv),
   message: ddqm.messageCpuIoWait(`${groupNotify}`),
   tags: [projectEnv],
-  thresholds: { critical: 0.5, warning: 0.3 },
+  thresholds: { critical: 0.7, warning: 0.5 },
   notifyNoData: false,
   newHostDelay: 300,
   includeTags: true,
