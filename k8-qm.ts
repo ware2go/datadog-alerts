@@ -25,10 +25,10 @@ export function messageFiveMinuteLoadAverages(notify: string): string {
 
 // Cluster CPU IOWait
 export function queryCpuIoWait(environment: string): string {
-  return `avg(last_5m):avg:system.cpu.iowait{cluster-name:${environment}-primary} by {cluster-name} > 0.5`;
+  return `avg(last_5m):avg:system.cpu.iowait{cluster-name:${environment}-primary} by {cluster-name} > 0.6`;
 }
 export function messageCpuIoWait(notify: string): string {
-  return `{{#is_alert}}\n{{cluster-name.name}}  System Cpu iowait greater than 0.5\n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} System Cpu iowait greater than 0.3\n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
+  return `{{#is_alert}}\n{{cluster-name.name}}  System Cpu iowait greater than 0.6\n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} System Cpu iowait greater than 0.4\n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
 }
 
 // Cluster Kubernetes Pods Expired
