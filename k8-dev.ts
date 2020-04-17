@@ -62,7 +62,7 @@ export const devClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}Cluster
 });
 
 export const devClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterClusterCpuIdle`, {
-  name: '{{cluster-name.name}} free disk space',
+  name: '{{cluster-name.name}} Cpu Idle',
   type: 'metric alert',
   query: queryClusterCpuIdle(projectEnv),
   message: messageClusterCpuIdle(`${groupNotify}`),
@@ -81,7 +81,7 @@ export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv
   query: queryFiveMinuteLoadAverages(projectEnv),
   message: messageFiveMinuteLoadAverages(`${groupNotify}`),
   tags: [projectEnv],
-  thresholds: { critical: 7, warning: 5 },
+  thresholds: { critical: 6, warning: 5 },
   notifyNoData: false,
   newHostDelay: 300,
   includeTags: true,
