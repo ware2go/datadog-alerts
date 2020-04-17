@@ -1,4 +1,3 @@
-import * as datadog from '@pulumi/datadog';
 
 // Cluster No Data
 export function queryNoData(environment: string): string {
