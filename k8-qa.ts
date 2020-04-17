@@ -46,7 +46,7 @@ function messageExpiredPods(notify: string): string {
 }
 
 // Monitors
-export const devClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}ClusterNoDataMonitor`, {
+export const qaClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}ClusterNoDataMonitor`, {
   name: '{{cluster-name.name}} is missing Data',
   type: 'service check',
   query: queryNoData(projectEnv),
@@ -61,7 +61,7 @@ export const devClusterNoDataMonitor = new datadog.Monitor(`${projectEnv}Cluster
   thresholds: { critical: 75, warning: 20 },
 });
 
-export const devClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterClusterCpuIdle`, {
+export const qaClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterClusterCpuIdle`, {
   name: '{{cluster-name.name}} Cpu Idle',
   type: 'metric alert',
   query: queryClusterCpuIdle(projectEnv),
@@ -75,7 +75,7 @@ export const devClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterCluste
   timeoutH: 0,
 });
 
-export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv}FiveMinuteLoadAverage`, {
+export const qaClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv}FiveMinuteLoadAverage`, {
   name: '{{cluster-name.name}} Five Minute Load Average',
   type: 'metric alert',
   query: queryFiveMinuteLoadAverages(projectEnv),
@@ -89,7 +89,7 @@ export const devClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv
   timeoutH: 0,
 });
 
-export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`, {
+export const qaClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`, {
   name: '{{cluster-name.name}} CpuIoWait',
   type: 'metric alert',
   query: queryCpuIoWait(projectEnv),
@@ -103,7 +103,7 @@ export const devClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`,
   timeoutH: 0,
 });
 
-export const devClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
+export const qaClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
   name: '{{cluster-name.name}} ExpiredPods',
   type: 'metric alert',
   query: queryExpiredPods(projectEnv),
