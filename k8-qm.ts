@@ -33,8 +33,8 @@ export function messageCpuIoWait(notify: string): string {
 
 // Cluster Kubernetes Pods Expired
 export function queryExpiredPods(environment: string): string {
-  return `avg(last_5m):avg:kubernetes.pods.expired{cluster-name:${environment}-primary} by {cluster-name} > 7`;
+  return `avg(last_5m):avg:kubernetes.pods.expired{cluster-name:${environment}-primary} by {cluster-name} > 15`;
 }
 export function messageExpiredPods(notify: string): string {
-  return `{{#is_alert}}\n{{cluster-name.name}}  Kubernetes Expired Pods 7\n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} Kubernetes Expired Pods 5\n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
+  return `{{#is_alert}}\n{{cluster-name.name}}  Kubernetes Expired Pods 15\n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} Kubernetes Expired Pods 10\n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
 }

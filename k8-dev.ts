@@ -71,7 +71,7 @@ export const devClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPo
   query: ddqm.queryExpiredPods(projectEnv),
   message: ddqm.messageExpiredPods(`${groupNotify}`),
   tags: [projectEnv],
-  thresholds: { critical: 7, warning: 5 },
+  thresholds: { critical: 15, warning: 10 },
   notifyNoData: false,
   newHostDelay: 300,
   includeTags: true,
