@@ -53,8 +53,8 @@ export const prodClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEn
 export const prodClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`, {
   name: `${projectEnv} CpuIoWait`,
   type: 'metric alert',
-  query: ddqm.queryCpuIoWait(projectEnv),
-  message: ddqm.messageCpuIoWait(`${groupNotify}`),
+  query: ddqm.queryCpuIoWait(projectEnv, '0.9'),
+  message: ddqm.messageCpuIoWait(`${groupNotify}`, '0.9', '0.7'),
   tags: [projectEnv],
   thresholds: { critical: 0.9, warning: 0.7 },
   notifyNoData: false,
