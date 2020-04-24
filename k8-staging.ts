@@ -67,8 +67,8 @@ export const stagingClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWa
 export const stagingClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
   name: `${projectEnv} ExpiredPods`,
   type: 'metric alert',
-  query: ddqm.queryExpiredPods(projectEnv),
-  message: ddqm.messageExpiredPods(`${groupNotify}`),
+  query: ddqm.queryExpiredPods(projectEnv, '15'),
+  message: ddqm.messageExpiredPods(`${groupNotify}`, '15', '10'),
   tags: [projectEnv],
   thresholds: { critical: 15, warning: 10 },
   notifyNoData: false,
