@@ -39,8 +39,8 @@ export const stagingClusterCpuIdle = new datadog.Monitor(`${projectEnv}ClusterCl
 export const stagingClusterFiveMinuteLoadAverage = new datadog.Monitor(`${projectEnv}FiveMinuteLoadAverage`, {
   name: `${projectEnv} Five Minute Load Average`,
   type: 'metric alert',
-  query: ddqm.queryFiveMinuteLoadAverages(projectEnv),
-  message: ddqm.messageFiveMinuteLoadAverages(`${groupNotify}`),
+  query: ddqm.queryFiveMinuteLoadAverages(projectEnv, '6'),
+  message: ddqm.messageFiveMinuteLoadAverages(`${groupNotify}`, '6', '5'),
   tags: [projectEnv],
   thresholds: { critical: 6, warning: 5 },
   notifyNoData: false,

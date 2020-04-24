@@ -16,11 +16,11 @@ export function messageClusterCpuIdle(notify: string): string {
 }
 
 // Cluster 5 minute load Average
-export function queryFiveMinuteLoadAverages(environment: string): string {
-  return `avg(last_5m):avg:system.load.5{cluster-name:${environment}-primary} > 6`;
+export function queryFiveMinuteLoadAverages(environment: string, critical: string): string {
+  return `avg(last_5m):avg:system.load.5{cluster-name:${environment}-primary} > ${critical}`;
 }
-export function messageFiveMinuteLoadAverages(notify: string): string {
-  return `{{#is_alert}}\n{{cluster-name.name}} has 5 minute load greater than 6\n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} has 5 minute load average 3\n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
+export function messageFiveMinuteLoadAverages(notify: string, crit: string, warn: string): string {
+  return `{{#is_alert}}\n{{cluster-name.name}} has 5 minute load greater than ${crit} \n{{/is_alert}} \n{{#is_warning}}\n{{cluster-name.name}} has 5 minute load average ${warn} \n{{/is_warning}}\n{{#is_recovery}}\n{{cluster-name.name}} recovered.\n{{/is_recovery}} ${notify}`;
 }
 
 // Cluster CPU IOWait
