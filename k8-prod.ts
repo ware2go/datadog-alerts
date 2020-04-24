@@ -3,7 +3,7 @@ import * as datadog from '@pulumi/datadog';
 import * as ddqm from './k8-qm';
 
 const projectEnv = 'prod';
-const groupNotify = '@devops@ware2go.co';
+const groupNotify = '@devops@ware2go.co @slack-Datadog-2_0_status';
 
 
 // Monitors
