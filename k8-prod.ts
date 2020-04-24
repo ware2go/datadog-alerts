@@ -3,7 +3,7 @@ import * as datadog from '@pulumi/datadog';
 import * as ddqm from './k8-qm';
 
 const projectEnv = 'prod';
-const groupNotify = '@devops@ware2go.co';
+const groupNotify = '@devops@ware2go.co @slack-Datadog-2_0_status';
 
 
 // Monitors
@@ -56,7 +56,7 @@ export const prodClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`
   query: ddqm.queryCpuIoWait(projectEnv),
   message: ddqm.messageCpuIoWait(`${groupNotify}`),
   tags: [projectEnv],
-  thresholds: { critical: 0.7, warning: 0.5 },
+  thresholds: { critical: 0.9, warning: 0.7 },
   notifyNoData: false,
   newHostDelay: 300,
   includeTags: true,
@@ -67,10 +67,10 @@ export const prodClusterCpuIoWait = new datadog.Monitor(`${projectEnv}CpuIoWait`
 export const prodClusterExpiredPods = new datadog.Monitor(`${projectEnv}ExpiredPods`, {
   name: `${projectEnv} ExpiredPods`,
   type: 'metric alert',
-  query: ddqm.queryExpiredPods(projectEnv),
-  message: ddqm.messageExpiredPods(`${groupNotify}`),
+  query: ddqm.queryExpiredPods(projectEnv, '16'),
+  message: ddqm.messageExpiredPods(`${groupNotify}`, '16', '12'),
   tags: [projectEnv],
-  thresholds: { critical: 15, warning: 10 },
+  thresholds: { critical: 16, warning: 12 },
   notifyNoData: false,
   newHostDelay: 300,
   includeTags: true,
