@@ -7,7 +7,7 @@ const groupNotify = '@devops@ware2go.co';
 // Postgres connection trace metrics
 export const devPostgresErrorRate = new datadog.Monitor(`${projectEnv}PostgresErrorRate`, {
   name: `${projectEnv} Postgres Error rate by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryPostgresErrorRate(projectEnv),
   message: ddqm.messagePostgresErrorRate(`${groupNotify}`),
   tags: [projectEnv],
@@ -21,7 +21,7 @@ export const devPostgresErrorRate = new datadog.Monitor(`${projectEnv}PostgresEr
 
 export const devPostgresResponseTime = new datadog.Monitor(`${projectEnv}PostgresResponseTime`, {
   name: `${projectEnv} Postgres Response Time High by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryPostgresErrorRate(projectEnv),
   message: ddqm.messagePostgresErrorRate(`${groupNotify}`),
   tags: [projectEnv],
@@ -37,7 +37,7 @@ export const devPostgresResponseTime = new datadog.Monitor(`${projectEnv}Postgre
 
 export const devHttpErrorRate = new datadog.Monitor(`${projectEnv}HttpErrorRate`, {
   name: `${projectEnv} HTTP Error rate by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryHttpErrorRate(projectEnv),
   message: ddqm.messageHttpErrorRate(`${groupNotify}`),
   tags: [projectEnv],
@@ -51,7 +51,7 @@ export const devHttpErrorRate = new datadog.Monitor(`${projectEnv}HttpErrorRate`
 
 export const devHttpResponseTime = new datadog.Monitor(`${projectEnv}HttpResponseTime`, {
   name: `${projectEnv} HTTP Response Time High by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryHttpResponseTime(projectEnv),
   message: ddqm.messageHttpResponseTime(`${groupNotify}`),
   tags: [projectEnv],
@@ -67,7 +67,7 @@ export const devHttpResponseTime = new datadog.Monitor(`${projectEnv}HttpRespons
 
 export const devExpressErrorRate = new datadog.Monitor(`${projectEnv}ExpressErrorRate`, {
   name: `${projectEnv} Express Error rate by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryExpressErrorRate(projectEnv),
   message: ddqm.messageExpressErrorRate(`${groupNotify}`),
   tags: [projectEnv],
@@ -81,7 +81,7 @@ export const devExpressErrorRate = new datadog.Monitor(`${projectEnv}ExpressErro
 
 export const devExpressResponseTime = new datadog.Monitor(`${projectEnv}ExpressResponseTime`, {
   name: `${projectEnv} Express Response Time High by {{service.name}}`,
-  type: 'metric alert',
+  type: 'query alert',
   query: ddqm.queryExpressResponseTime(projectEnv),
   message: ddqm.messageExpressResponseTime(`${groupNotify}`),
   tags: [projectEnv],
