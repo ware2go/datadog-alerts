@@ -30,7 +30,7 @@ export const stagingPostgresResponseTime = new datadog.Monitor(`${projectEnv}Pos
   notifyNoData: false,
   notifyAudit: false,
   newHostDelay: 300,
-  thresholds: { critical: 0.015 },
+  thresholds: { critical: 0.1 },
 });
 
 // HTTP request trace metrics
