@@ -22,8 +22,8 @@ export const devPostgresErrorRate = new datadog.Monitor(`${projectEnv}PostgresEr
 export const devPostgresResponseTime = new datadog.Monitor(`${projectEnv}PostgresResponseTime`, {
   name: `${projectEnv} Postgres Response Time High by {{service.name}}`,
   type: 'query alert',
-  query: ddqm.queryPostgresErrorRate(projectEnv),
-  message: ddqm.messagePostgresErrorRate(`${groupNotify}`),
+  query: ddqm.queryPostgresResponseTime(projectEnv),
+  message: ddqm.messagePostgresResponseTime(`${groupNotify}`),
   tags: [projectEnv],
   renotifyInterval: 0,
   timeoutH: 0,
