@@ -7,7 +7,7 @@ export function messagePostgresErrorRate(notify: string): string {
 }
 
 export function queryPostgresResponseTime(environment: string): string {
-  return `max(last_5m):max:trace.pg.query.duration{env:${environment}} by {service} > 0.015`;
+  return `max(last_5m):max:trace.pg.query.duration{env:${environment}} by {service} > 0.1`;
 }
 export function messagePostgresResponseTime(notify: string): string {
   return `Postgres response time is high for service {{service.name}} ${notify}`;
